@@ -76,7 +76,8 @@ func (db *DB) Wait() error {
 		if err == nil {
 			// connection successful
 			fmt.Print("\n")
-			return nil
+			// migrate
+	                return db.Migrate()
 		}
 	}
 
