@@ -24,6 +24,7 @@ WORKDIR /src
 RUN make build
 
 # runtime image
-FROM gcr.io/distroless/base
+FROM alpine
+RUN apk --no-cache add libc6-compat mysql-client
 COPY --from=build /src/dist/dbmate-linux-amd64 /dbmate
 ENTRYPOINT ["/dbmate"]
