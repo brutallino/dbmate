@@ -24,6 +24,6 @@ WORKDIR /src
 RUN make build
 
 # runtime image
-FROM gcr.io/distroless/base
+FROM alpine
 COPY --from=build /src/dist/dbmate-linux-amd64 /dbmate
 ENTRYPOINT ["/dbmate"]
