@@ -24,7 +24,7 @@ WORKDIR /src
 RUN make build
 
 # runtime image
-FROM alpine
-RUN apk --no-cache add libc6-compat mysql-client
+FROM golang:1.12
+#RUN apk --no-cache add libc6-compat mysql-client
 COPY --from=build /src/dist/dbmate-linux-amd64 /dbmate
 ENTRYPOINT ["/dbmate"]
