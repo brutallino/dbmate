@@ -7,7 +7,7 @@ ENV CGO_ENABLED 1
 # install database clients
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
-		mysql-client \
+		default-mysql-client \
 		postgresql-client \
 		sqlite3 \
 	&& rm -rf /var/lib/apt/lists/*
